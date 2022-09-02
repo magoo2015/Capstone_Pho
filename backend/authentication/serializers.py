@@ -45,6 +45,9 @@ class RegistrationSerializer(serializers.ModelSerializer):
             # create method. Example below:
 
             # is_student=validated_data['is_student']
+            #city=validated_data['city'],
+            #state=validated_data['state'],
+            #zip=validated_data['zip'],
         )
         user.set_password(validated_data['password'])
         user.save()
