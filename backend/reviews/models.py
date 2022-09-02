@@ -1,10 +1,11 @@
 from django.db import models
 from authentication.models import User
+from pho_customer.models import Pho_Customers
 
 # Create your models here.
 
 class Reviews(models.Model):
     review_id = models.CharField(max_length=255)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    isliked = models.BooleanField('islike status', default=False)
-    isdisliked = models.BooleanField('isdislike status', default=False)
+    customer = models.ForeignKey(Pho_Customers, on_delete=models.CASCADE, null=True)
+    isliked = models.IntegerField()
+    isdisliked = models.IntegerField()
