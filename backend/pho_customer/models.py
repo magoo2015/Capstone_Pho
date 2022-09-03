@@ -9,4 +9,4 @@ class Pho_Customers(models.Model):
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
     zip = models.CharField(max_length=255)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
