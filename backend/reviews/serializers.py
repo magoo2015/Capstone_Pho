@@ -6,3 +6,5 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = Reviews
         fields = ['id', 'isliked', 'isdisliked', 'customer_id', 'comment']
         depth = 1
+    
+    customer_id = serializers.IntegerField(write_only=True)

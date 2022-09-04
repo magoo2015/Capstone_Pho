@@ -6,3 +6,5 @@ class PhoCustomerSerializers(serializers.ModelSerializer):
         model = Pho_Customers
         fields = ['id', 'first_name', 'last_name', 'city', 'state', 'zip', 'user_id']
         depth = 1
+    
+    user_id = serializers.IntegerField(write_only=True)
