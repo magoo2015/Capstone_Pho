@@ -21,7 +21,7 @@ def customer_list(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-@api_view(['Get', 'PUT', 'DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def customer_detail(request, pk):
     customers = get_object_or_404(Pho_Customers, pk=pk)
 
