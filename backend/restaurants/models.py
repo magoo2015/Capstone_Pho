@@ -4,7 +4,7 @@ from authentication.models import User
 # Create your models here.
 
 class Restaurant(models.Model):
-    restaurant_id = models.CharField(max_length=255)
+    pho_restaurant_id = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     isVegan = models.BooleanField('vegan status', default=False)
     isVegetarian = models.BooleanField('vegetarian status', default=False)

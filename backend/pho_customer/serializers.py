@@ -4,4 +4,5 @@ from .models import Pho_Customers
 class PhoCustomerSerializers(serializers.ModelSerializer):
     class Meta:
         model = Pho_Customers
-        fields = ['id', 'customer_id', 'first_name', 'last_name', 'city', 'state', 'zip']
+        fields = ['id', 'first_name', 'last_name', 'city', 'state', 'zip', 'user_id']
+        depth = 1
