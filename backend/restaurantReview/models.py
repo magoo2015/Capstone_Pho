@@ -6,3 +6,6 @@ from reviews.models import Reviews
 class RestaurantReview(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     review = models.ForeignKey(Reviews, on_delete=models.CASCADE)
+    
+
+
