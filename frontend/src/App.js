@@ -16,9 +16,11 @@ import Footer from "./components/Footer/Footer";
 import PrivateRoute from "./utils/PrivateRoute";
 import { useState } from "react";
 import {KEY} from "./localKey";
+import {DATA} from "./localData";
+
 
 function App() {
-  const [businesses, setBusinesses] = useState([]);
+  const [businesses, setBusinesses] = useState(DATA);
   //Make api key & ignore it
   const config = {
     headers: {
@@ -28,6 +30,8 @@ function App() {
     },
   };
 
+
+/*
   async function getBuisnesses() {
 
     let response = await axios.get(
@@ -35,7 +39,8 @@ function App() {
     );
     return response;
   }
-  console.log(getBuisnesses());
+  */
+ // console.log(getBuisnesses());
   return (
     <div>
       {/*  <Navbar />
