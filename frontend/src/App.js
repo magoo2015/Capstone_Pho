@@ -7,6 +7,8 @@ import axios from "axios";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import AboutPage from "./pages/About/About";
+import AdminPage from "./pages/AdminPage/Adminpage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -30,7 +32,6 @@ function App() {
     },
   };
 
-
 /*
   async function getBuisnesses() {
 
@@ -41,9 +42,10 @@ function App() {
   }
   */
  // console.log(getBuisnesses());
+
   return (
     <div>
-      {/*  <Navbar />
+      <Navbar />
       <Routes>
         <Route
           path="/"
@@ -55,8 +57,10 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
-      <Footer />*/}
+      <Footer />
     </div>
   );
 }

@@ -13,6 +13,15 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  background-image: url("./Images/pho.avif");
+  background-repeat: no-repeat ;
+  width: 100%;
+  height: 80%;
+  background-size: cover;
+  background-blend-mode: hue;
+}
+
 p {
   font-size: 20px;
 }
