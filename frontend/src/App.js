@@ -14,6 +14,7 @@ import SearchPage from "./pages/SearchPage/SearchPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 
 // Util Imports

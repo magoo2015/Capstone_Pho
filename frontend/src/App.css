@@ -67,6 +67,11 @@ button:hover {
   font-size: 17px;
 }
 
+.search-container {
+  display:flex;
+  justify-content: center;
+}
+
 .businesses {
   display:flex;
   flex-direction: row;
