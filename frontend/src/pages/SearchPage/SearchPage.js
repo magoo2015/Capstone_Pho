@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { DATA } from '../../localData';
+import AuthContext from '../../context/AuthContext';
 import SearchBar from '../../components/SearchBar/SearchBar';
 
 const SearchPage = () => {
-    const [businesses, setBusinesses] = useState(DATA);
+    const { businesses } = useContext(AuthContext);
 
 
     return (

@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import SearchBar from "../../components/SearchBar/SearchBar";
 import useAuth from "../../hooks/useAuth";
 
 import axios from "axios";
@@ -28,6 +29,7 @@ const HomePage = () => {
   }, [token]);
   return (
     <div className="container">
+      <div className='search-container'><SearchBar /></div>
       <h1>Home Page for {user.username}!</h1>
       {cars &&
         cars.map((car) => (

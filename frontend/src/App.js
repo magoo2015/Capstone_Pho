@@ -62,7 +62,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/admin" element={<AdminPage />} />
-        <Route path="/search" element={<SearchPage businesses={businesses} setBusinesses={setBusinesses}/>} />
+        <Route path="/search" element={<SearchPage />} />
       </Routes>
       <Footer />
     </div>
