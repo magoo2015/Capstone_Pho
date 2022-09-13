@@ -10,6 +10,7 @@ const RestaurantPage = (props) => {
     const {businessid} = useParams();
     const [business, setBusiness] = useState(DATA1)
     console.log(business)
+    
 
     
     

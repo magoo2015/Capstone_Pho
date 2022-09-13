@@ -7,7 +7,6 @@ from restaurants.models import Restaurant
 # Create your models here.
 
 class Reviews(models.Model):
-    pho_restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     customer = models.ForeignKey(Pho_Customers, on_delete=models.CASCADE)
     isliked = models.IntegerField()
     isdisliked = models.IntegerField()
