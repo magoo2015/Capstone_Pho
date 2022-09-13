@@ -19,7 +19,10 @@ const Navbar = () => {
             <b>About </b>
           </Link>
           <Link to="/login" style={{ textDecoration: "none", color: "white" }}>
-            <b>Login</b>
+            <b> Login</b>
+          </Link>
+          <Link to="/search" style={{ textDecoration: "none", color: "white" }}>
+            <b> Search</b>
           </Link>
         </li>
         <li>

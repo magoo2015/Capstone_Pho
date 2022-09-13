@@ -10,6 +10,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import AboutPage from "./pages/About/About";
 import AdminPage from "./pages/AdminPage/Adminpage";
 import SearchPage from "./pages/SearchPage/SearchPage";
+import RestaurantPage from "./pages/RestaurantPage/RestaurantPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -63,6 +64,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/restaurantpage/:businessid" element={<RestaurantPage />} />
       </Routes>
       <Footer />
     </div>

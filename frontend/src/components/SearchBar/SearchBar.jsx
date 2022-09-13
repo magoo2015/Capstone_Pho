@@ -27,7 +27,7 @@ const SearchBar = (props) => {
   async function handleSubmit(event) {
     event.preventDefault();
     let response = await axios.get(
-      `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=PHO&location=Dallas&categories=vegan,vegetarian`,
+      `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=PHO&location=${location}&categories=${category}`,
       config
     );
     setBusinesses(response.data.businesses);
