@@ -7,18 +7,25 @@ import axios from 'axios';
 const RestaurantPage = (props) => {
 
     const {businessid} = useParams();
-    const {business, setBusiness} = useState({})
+    const [business, setBusiness] = useState({})
     console.log(business)
 
-    const config = {
-        headers: {
-          "Access-Control-Allow-Credentials": true,
-          "Access-Control-Allow-Origin": "*",
-          Authorization: `Bearer ${KEY}`,
-        },
-      };
+    
+    
+    
+    
 
-    useEffect (() => {
+    useEffect (() => { 
+
+        const config = {
+            headers: {
+              "Access-Control-Allow-Credentials": true,
+              "Access-Control-Allow-Origin": "*",
+              Authorization: `Bearer ${KEY}`,
+            },
+          };
+
+
         const getBusiness = async () => {
             try {
                 let response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${businessid}`, config);
@@ -36,7 +43,9 @@ const RestaurantPage = (props) => {
     return (
         <div className='restaurant-container'>
             <div className='restaurant'>
-                <h1>{businessid}</h1>
+                <h1>{business.name}</h1>
+                <img src={business.image_url} />
+                <p>{business.transactions}</p>
             </div>
 
         </div>
