@@ -3,11 +3,12 @@ import AuthContext from '../../context/AuthContext';
 import { KEY } from '../../localKey';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import {DATA1} from '../../localBusinessdata';
 
 const RestaurantPage = (props) => {
 
     const {businessid} = useParams();
-    const [business, setBusiness] = useState({})
+    const [business, setBusiness] = useState(DATA1)
     console.log(business)
 
     
@@ -35,7 +36,7 @@ const RestaurantPage = (props) => {
                 
             }
         }
-        getBusiness()
+        //getBusiness()
     }, [businessid])
 
     
@@ -45,6 +46,7 @@ const RestaurantPage = (props) => {
             <div className='restaurant'>
                 <h1>{business.name}</h1>
                 <img src={business.image_url} />
+                <p>{business.location.display_address}</p>
                 <p>{business.transactions}</p>
             </div>
 
