@@ -15,6 +15,13 @@ def review_list(request):
     reviews = Reviews.objects.all()
     serializer = ReviewSerializer(reviews, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def review_by_restaurant(request, id):
+    reviews = Reviews.objects.filter(restaurant_id=id)
+    serializer = ReviewSerializer(reviews, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
     
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
