@@ -39,13 +39,13 @@ const RestaurantPage = (props) => {
             }
         }
         //getBusiness()
-        postRestaurant()
-        //getReviews()
+        //postRestaurant()
+        getReviews()
         //postReviews()
     }, [businessid])
 
     async function getReviews(){
-        const response = await axios.get(`http://127.0.0.1:8000/api/reviews/restaurant_reviews/5/`);
+        const response = await axios.get(`http://127.0.0.1:8000/api/reviews/restaurant_reviews/${businessid}/`);
         console.log(response.data)
     }
 
@@ -72,7 +72,8 @@ const RestaurantPage = (props) => {
             isdisliked: 0,
             customer_id: 2,
             comment: "Amazing",
-            restaurant_id: 5
+            restaurant_id: 5,
+            yelp_id: businessid
         }
         let response = await axios.post("http://127.0.0.1:8000/api/reviews/new_review/", newReview, {
             headers: {

@@ -11,5 +11,7 @@ class Reviews(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     isliked = models.IntegerField()
     isdisliked = models.IntegerField()
+    yelp_id = models.CharField(max_length=255)
     comment = models.CharField(max_length=255)
+    depth = 1
     
