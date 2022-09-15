@@ -1,20 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../context/AuthContext';
+import useAuth from '../../hooks/useAuth';
 import { KEY } from '../../localKey';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import {DATA1} from '../../localBusinessdata';
 
+
 const RestaurantPage = (props) => {
 
     const {businessid} = useParams();
     const [business, setBusiness] = useState(DATA1)
+    const [user, token] = useAuth();
     console.log(business)
+   
     
 
-    
-    
-    
     
 
     useEffect (() => { 
@@ -38,9 +39,33 @@ const RestaurantPage = (props) => {
             }
         }
         //getBusiness()
+        getReviews()
+        postReviews()
     }, [businessid])
 
-    
+    async function getReviews(){
+        const response = await axios.get(`http://127.0.0.1:8000/api/reviews/restaurant_reviews/5/`);
+        console.log(response.data)
+    }
+
+    async function postReviews(text){
+        let newReview = {
+            isliked: 0,
+            isdisliked: 0,
+            customer_id: 2,
+            comment: "Amazing",
+            restaurant_id: 5
+        }
+        let response = await axios.post("http://127.0.0.1:8000/api/reviews/new_review/", newReview, {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        });
+        console.log(response.data)
+
+    }
+
+
 
     return (
         <div className='restaurant-container'>
@@ -50,7 +75,6 @@ const RestaurantPage = (props) => {
                 <p>{business.location.display_address}</p>
                 <p>{business.transactions}</p>
             </div>
-
         </div>
 
       );
