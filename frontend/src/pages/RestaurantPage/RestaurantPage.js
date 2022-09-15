@@ -5,6 +5,7 @@ import { KEY } from '../../localKey';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import {DATA1} from '../../localBusinessdata';
+import ReviewForm from '../../components/ReviewForm/ReviewForm';
 
 
 const RestaurantPage = (props) => {
@@ -93,6 +94,9 @@ const RestaurantPage = (props) => {
                 <img src={business.image_url} />
                 <p>{business.location.display_address}</p>
                 <p>{business.transactions}</p>
+            </div>
+            <div>
+                <ReviewForm businessid = {businessid} />
             </div>
         </div>
 
