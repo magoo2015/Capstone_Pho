@@ -12,7 +12,7 @@ const RestaurantPage = (props) => {
     const {businessid} = useParams();
     const [business, setBusiness] = useState(DATA1)
     const [user, token] = useAuth();
-    console.log(business)
+   // console.log(business)
    
     
 
@@ -39,13 +39,31 @@ const RestaurantPage = (props) => {
             }
         }
         //getBusiness()
-        getReviews()
-        postReviews()
+        postRestaurant()
+        //getReviews()
+        //postReviews()
     }, [businessid])
 
     async function getReviews(){
         const response = await axios.get(`http://127.0.0.1:8000/api/reviews/restaurant_reviews/5/`);
         console.log(response.data)
+    }
+
+    async function postRestaurant(){
+        let newRestaurant = {
+            pho_restaurant_id: businessid,
+            name: business.name,
+            isVegan: true,
+            isVegetarian: true,
+            isDelivery: true,
+            isPickup: true,
+            city: business.location.city,
+            state: business.location.state,
+            zip: business.location.zip_code
+        }
+        let response = await axios.post("http://127.0.0.1:8000/api/restaurants/", newRestaurant);
+        console.log(response.data)
+
     }
 
     async function postReviews(text){
