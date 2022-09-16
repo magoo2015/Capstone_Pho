@@ -1,0 +1,11 @@
+#approve.active{
+    background-color: green;
+}
+#disapprove.active{
+    background-color: red;
+}
+
+#buttons{
+    display: flex;
+    align-items: center;
+}

@@ -50,12 +50,12 @@ def review_detail(request, pk):
 
 @api_view(['PATCH'])
 @permission_classes([IsAuthenticated])
-def likes(request, pk):
+def likes(request, id):
     type = request.query_params.get('type')
     print(type)
 
     if type == 'likes':
-        reviews = Reviews.objects.get(pk=pk)
+        reviews = Reviews.objects.get(yelp_id=id)
 
         data = {'isliked': reviews.isliked + int(1) }
         serializer = ReviewSerializer(reviews, data=data, partial=True)
@@ -64,7 +64,7 @@ def likes(request, pk):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     elif type == 'dislikes':
-        reviews = Reviews.objects.get(pk=pk)
+        reviews = Reviews.objects.get(yelp_id=id)
 
         data = {'isdisliked': reviews.isdisliked + int(1) }
         serializer = ReviewSerializer(reviews, data=data, partial=True)

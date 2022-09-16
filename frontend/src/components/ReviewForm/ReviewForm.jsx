@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
+import Buttons from '../Buttons/Buttons';
 
 const ReviewForm = (props) => {
 
@@ -18,6 +19,7 @@ const ReviewForm = (props) => {
     async function getReviews(){
         const response = await axios.get(`http://127.0.0.1:8000/api/reviews/restaurant_reviews/${props.businessid}/`);
         console.log(response.data)
+        setRestaurantReview(response.data)
     }
 
 
@@ -27,7 +29,7 @@ const ReviewForm = (props) => {
             isliked: 0,
             isdisliked: 0,
             customer_id: 2,
-            comment: review     ,
+            comment: review,
             restaurant_id: 5,
             yelp_id: props.businessid
         }
@@ -45,6 +47,18 @@ const ReviewForm = (props) => {
                 <input type='text' className='review-input' value={review} onChange={(event) => setReview(event.target.value)}/>
                 <button type='submit' className='review-button'>Submit</button>
             </form>
+            <div className='button'>
+                <Buttons />
+            </div>
+            <div className='restaurant-reviews'>
+                {resaurantReview && resaurantReview.map((restaurant, index) => {
+                    return (
+                        <div className='rest-review' key={index}>
+                            <p>{restaurant.comment}</p>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
       );
 }

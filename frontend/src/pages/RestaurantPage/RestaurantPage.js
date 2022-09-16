@@ -93,7 +93,8 @@ const RestaurantPage = (props) => {
                 <h1>{business.name}</h1>
                 <img src={business.image_url} />
                 <p>{business.location.display_address}</p>
-                <p>{business.transactions}</p>
+                <p>{business.coordinates.latitude}</p>
+                <p>{business.coordinates.longitude}</p>
             </div>
             <div>
                 <ReviewForm businessid = {businessid} />
