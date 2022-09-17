@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import {DATA1} from '../../localBusinessdata';
 import ReviewForm from '../../components/ReviewForm/ReviewForm';
+import { GOOGLE } from '../../localKey';
 
 
 const RestaurantPage = (props) => {
@@ -95,6 +96,15 @@ const RestaurantPage = (props) => {
                 <p>{business.location.display_address}</p>
                 <p>{business.coordinates.latitude}</p>
                 <p>{business.coordinates.longitude}</p>
+                <div className='map'>
+                    <iframe className='rest-map' title='map'
+                    width="450"
+                    height="250"
+                    frameborder="0" style={{border:0}}
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src={`https://www.google.com/maps/embed/v1/view?key=${GOOGLE}&center=${business.coordinates.latitude},${business.coordinates.longitude}`}>
+                    </iframe>
+                </div>
             </div>
             <div>
                 <ReviewForm businessid = {businessid} />
