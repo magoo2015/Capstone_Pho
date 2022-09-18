@@ -28,7 +28,8 @@ const RestaurantPage = (props) => {
         const getBusiness = async () => {
             try {
                 let response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${businessid}`, config);
-                setBusiness(response.data);
+                console.log(response.data)
+                setBusiness(response.data)
             } catch (error) {
                 console.log(error)
             }
