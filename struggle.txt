@@ -1,0 +1,47 @@
+    useEffect (() => { 
+
+        const config = {
+            headers: {
+              "Access-Control-Allow-Credentials": true,
+              "Access-Control-Allow-Origin": "*",
+              Authorization: `Bearer ${KEY}`,
+            },
+          };
+
+
+        const getBusiness = async () => {
+            try {
+                let response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${businessid}`, config);
+                console.log(setBusiness)
+                setBusiness(response.data)
+                console.log(setBusiness)
+            } catch (error) {
+                console.log(error)
+                
+            }
+        }
+        
+        //postRestaurant()
+        //getReviews()
+        //postReviews()
+        getBusiness()
+    }, [businessid])
+
+    
+
+    async function postRestaurant(){
+        let newRestaurant = {
+            pho_restaurant_id: businessid,
+            name: business.name,
+            isVegan: true,
+            isVegetarian: true,
+            isDelivery: true,
+            isPickup: true,
+            city: business.location.city,
+            state: business.location.state,
+            zip: business.location.zip_code
+        }
+        let response = await axios.post("http://127.0.0.1:8000/api/restaurants/", newRestaurant);
+        console.log(response.data)
+
+    }

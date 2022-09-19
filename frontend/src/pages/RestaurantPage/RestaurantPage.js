@@ -15,27 +15,30 @@ const RestaurantPage = (props) => {
     const [business, setBusiness] = useState({}); //change to DATA1 to local data
     const [user, token] = useAuth();
     console.log(businessid)
+
+    const config = {
+        headers: {
+            "Access-Control-Allow-Credentials": true,
+            "Access-Control-Allow-Origin": "*",
+            Authorization: `Bearer ${KEY}`,
+        },
+    };
     
     useEffect(() => {
-        const config = {
-            headers: {
-                "Access-Control-Allow-Credentials": true,
-                "Access-Control-Allow-Origin": "*",
-                Authorization: `Bearer ${KEY}`,
-            },
-        };
-
-        const getBusiness = async () => {
-            try {
-                let response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${businessid}`, config);
-                console.log(response.data)
-                setBusiness(response.data)
-            } catch (error) {
-                console.log(error)
-            }
-        };
-        getBusiness()
+        getBusiness() 
     }, [businessid])
+   
+   
+    const getBusiness = async () => {
+        try {
+            let response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${businessid}`, config);
+            console.log(response)
+            //setBusiness(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+    };
+    
    
     async function postRestaurant(){
         let newRestaurant = {
