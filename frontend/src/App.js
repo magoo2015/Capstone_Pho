@@ -12,6 +12,7 @@ import AdminPage from "./pages/AdminPage/Adminpage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import RestaurantPage from "./pages/RestaurantPage/RestaurantPage";
 
+
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
