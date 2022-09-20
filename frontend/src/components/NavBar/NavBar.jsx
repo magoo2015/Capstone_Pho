@@ -24,6 +24,10 @@ const Navbar = () => {
           <Link to="/search" style={{ textDecoration: "none", color: "white" }}>
             <b> Search</b>
           </Link>
+          <Link to="/admin" style={{ textDecoration: "none", color: "white" }}>
+            <b> Admin</b>
+          </Link>
+
         </li>
         <li>
           {user ? (

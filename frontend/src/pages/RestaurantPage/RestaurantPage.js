@@ -91,6 +91,9 @@ const RestaurantPage = (props) => {
             {business.location.display_address[1]}
           </p>
           {/* <p>{business.address1}</p> */}
+          <p>{business.transactions[0]}{" "}
+              {business.transactions[1]}
+          </p>
           <p>{business.coordinates.latitude}</p>
           <p>{business.coordinates.longitude}</p>
           <div className="map">

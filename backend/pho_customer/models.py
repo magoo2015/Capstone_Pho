@@ -7,5 +7,7 @@ class Pho_Customers(models.Model):
     last_name = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
+    food_preference = models.CharField(max_length=255)
     zip = models.CharField(max_length=255)
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
