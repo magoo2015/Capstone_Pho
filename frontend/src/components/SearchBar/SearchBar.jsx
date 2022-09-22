@@ -42,6 +42,9 @@ const SearchBar = (props) => {
           <option value="Dallas">Dallas</option>
           <option value="Richardson">Richardson</option>
           <option value="Fort Worth">Fort Worth</option>
+          <option value="San Francisco">San Francisco</option>
+          <option value="Miami">Miami</option>
+          <option value="Austin">Austin</option>
         </select>
         <label className="search-category">Choose Category</label>
         <select value={category} onChange={handleCatergory}>

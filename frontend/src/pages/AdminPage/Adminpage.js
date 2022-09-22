@@ -6,6 +6,7 @@ import axios from 'axios';
 
 const AdminPage = () => {
     const [customers, setCustomers] = useState([]);
+    const [find, setFind] = useState('')
 
     async function getAllCustomers(){
         const response = await axios.get('http://127.0.0.1:8000/api/customers/');
@@ -13,16 +14,38 @@ const AdminPage = () => {
         setCustomers(response.data)
     }
 
-    useEffect(() => {
+    function searchCustomers(event){
+        event.preventDefault();
+
+        let response = customers.filter((customer) => {
+            if (customer.city.includes(find) ||
+                customer.state.includes(find) ||
+                customer.zip.includes(find) ||
+                customer.food_preference.includes(find)) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+        });
+        setCustomers(response)
+    }
+
+    useEffect(()=>{
         getAllCustomers();
-      }, []);
-    
+    }, {})
 
 
     return (
         <div>
             <div className='Admin'>
-                <Admin customers={customers} setCustomers={setCustomers}/>
+            <form onSubmit={searchCustomers}>
+                <div className='customer-search'>
+                    <label>Customer Data Search</label>
+                    <input type='text' value={find} onChange={(event) => setFind(event.target.value)} />
+                    <button type='submit'>Filter Search</button>
+                </div>
+            </form>       
             </div>
             <div className='customer-container'>
                 <table className='customer-table'>
@@ -39,16 +62,16 @@ const AdminPage = () => {
                     <tbody>
                         {customers.map((customer) => {
                             return (
-                                <div className='cust-table' key={customer.id}>
-                                    <tr>
-                                        <td>{customer.first_name}</td>
-                                        <td>{customer.last_name}</td>
-                                        <td>{customer.city}</td>
-                                        <td>{customer.state}</td>
-                                        <td>{customer.zip}</td>
-                                        <td>{customer.food_preference}</td>
+                                
+                                <tr>
+                                    <td>{customer.first_name}</td>
+                                    <td>{customer.last_name}</td>
+                                    <td>{customer.city}</td>
+                                    <td>{customer.state}</td>
+                                    <td>{customer.zip}</td>
+                                    <td>{customer.food_preference}</td>
                                 </tr>
-                                </div>
+                                
                             )
                         })}
                     </tbody>

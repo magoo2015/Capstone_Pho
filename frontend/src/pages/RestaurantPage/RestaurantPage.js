@@ -94,8 +94,6 @@ const RestaurantPage = (props) => {
           <p>{business.transactions[0]}{" "}
               {business.transactions[1]}
           </p>
-          <p>{business.coordinates.latitude}</p>
-          <p>{business.coordinates.longitude}</p>
           <div className="map">
             <iframe
               className="rest-map"

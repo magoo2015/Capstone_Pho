@@ -10,7 +10,7 @@
 
 html {
   box-sizing: border-box;
-  color: whitesmoke;
+  color: rgb(10, 10, 10);
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
@@ -103,5 +103,20 @@ button:hover {
 .busi img {
   height: auto;
   width: auto;
-  max-height: 300px;
+  max-height: 200px;
+}
+
+.restaurant-container {
+  display: flex;
+  flex-direction: column;
+  color: wheat;
+  margin: auto;
+  width: 20%;
+  padding: 10px;
+}
+
+.restaurant img {
+  height: auto;
+  width: auto;
+  max-height: 400px;
 }
