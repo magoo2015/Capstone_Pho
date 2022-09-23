@@ -109,7 +109,7 @@ const RestaurantPage = (props) => {
         </div>
       )}
       <div>
-        <ReviewForm businessid={businessid} />
+        <ReviewForm businessid={businessid} business={business} />
       </div>
     </div>
   );

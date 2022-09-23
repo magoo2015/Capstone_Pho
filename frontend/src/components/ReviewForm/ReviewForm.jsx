@@ -8,9 +8,11 @@ const ReviewForm = (props) => {
     const [review, setReview] = useState('')
     const [user, token] = useAuth();
     const [resaurantReview, setRestaurantReview] = useState('')
+    console.log(props.business)
 
 
     useEffect (() => {
+        postRestaurant()
         getReviews();
     },[props.businessid])
 
@@ -18,9 +20,29 @@ const ReviewForm = (props) => {
 
     async function getReviews(){
         const response = await axios.get(`http://127.0.0.1:8000/api/reviews/restaurant_reviews/${props.businessid}/`);
-        console.log(response.data)
+        //console.log(response.data)
         setRestaurantReview(response.data)
     }
+
+    async function postRestaurant() {
+        let newRestaurant = {
+          pho_restaurant_id: props.businessid,
+          name: props.business.name,
+          isVegan: true,
+          isVegetarian: true,
+          isDelivery: true,
+          isPickup: true,
+          city: props.business.location.city,
+          state: props.business.location.state,
+          zip: props.business.location.zip_code,
+          likes: 0
+        };
+        let response = await axios.post(
+          "http://127.0.0.1:8000/api/restaurants/",
+          newRestaurant
+        );
+        console.log(response.data);
+      }
 
 
     async function handleSubmit(event){
@@ -30,7 +52,7 @@ const ReviewForm = (props) => {
             isdisliked: 0,
             customer_id: 2,
             comment: review,
-            restaurant_id: 1,
+            restaurant_id: 8,
             yelp_id: props.businessid
         }
         let response = await axios.post("http://127.0.0.1:8000/api/reviews/new_review/", newReview, {
