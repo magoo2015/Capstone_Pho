@@ -30,7 +30,7 @@ const ReviewForm = (props) => {
             isdisliked: 0,
             customer_id: 2,
             comment: review,
-            restaurant_id: 5,
+            restaurant_id: 1,
             yelp_id: props.businessid
         }
         let response = await axios.post("http://127.0.0.1:8000/api/reviews/new_review/", newReview, {
@@ -48,7 +48,7 @@ const ReviewForm = (props) => {
                 <button type='submit' className='review-button'>Submit</button>
             </form>
             <div className='button'>
-                <Buttons />
+                <Buttons  />
             </div>
             <div className='restaurant-reviews'>
                 {resaurantReview && resaurantReview.map((restaurant, index) => {
