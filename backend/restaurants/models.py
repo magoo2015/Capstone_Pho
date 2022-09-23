@@ -10,6 +10,7 @@ class Restaurant(models.Model):
     isVegetarian = models.BooleanField('vegetarian status', default=False)
     isDelivery = models.BooleanField('delivery status', default=False)
     isPickup = models.BooleanField('pickup status', default=False)
+    likes = models.IntegerField()
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
     zip = models.CharField(max_length=255)

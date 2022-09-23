@@ -37,3 +37,28 @@ def restaurant_detail(request, pk):
         restaurants.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+@api_view(['PATCH'])
+def restaurant_likes(request, id):
+    type = request.query_params.get('type')
+    print(type)
+
+    if type == 'likes':
+        like_status = Restaurant.objects.get(pho_restaurant_id=id)
+
+        data = {'likes': like_status.likes + int(1)}
+        serializer = RestaurantSerializer(like_status, data=data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    elif type == 'dislikes':
+        like_status = Restaurant.objects.get(pho_restaurant_id=id)
+
+        data = {'likes': like_status.likes - int(1)}
+        serializer = RestaurantSerializer(like_status, data=data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    
+
