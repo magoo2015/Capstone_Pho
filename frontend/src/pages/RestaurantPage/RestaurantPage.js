@@ -11,9 +11,11 @@ import { GOOGLE } from "../../localKey";
 const RestaurantPage = (props) => {
   const { businessid } = useParams();
   //const businessid = "pgitOnp8rmmuc6sJYRLNEA"
-  const [business, setBusiness] = useState({}); //change to DATA1 to local data
+  const [business, setBusiness] = useState(DATA1); //change to DATA1 to local data
+  const [addRestaurant, setAddRestaurant] = useState({});
   const [user, token] = useAuth();
-  console.log(businessid);
+  console.log(user);
+
 
   const config = {
     headers: {
@@ -29,7 +31,7 @@ const RestaurantPage = (props) => {
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${businessid}`,
         config
       );
-      console.log(response);
+      //console.log(response.data);
       setBusiness(response.data)
     } catch (error) {
       console.log(error);
@@ -37,6 +39,7 @@ const RestaurantPage = (props) => {
   };
 
   async function postRestaurant() {
+
     let newRestaurant = {
       pho_restaurant_id: businessid,
       name: business.name,
@@ -44,40 +47,23 @@ const RestaurantPage = (props) => {
       isVegetarian: true,
       isDelivery: true,
       isPickup: true,
-      city: business.location.city,
-      state: business.location.state,
-      zip: business.location.zip_code,
+      city: business.location && business.location.city,
+      state: business.location && business.location.state,
+      zip: business.location && business.location.zip_code,
+      likes:0
     };
     let response = await axios.post(
       "http://127.0.0.1:8000/api/restaurants/",
       newRestaurant
     );
-    console.log(response.data);
+    //console.log(response.data);
+    setAddRestaurant(response.data)
   }
 
-  async function postReviews(text) {
-    let newReview = {
-      isliked: 0,
-      isdisliked: 0,
-      customer_id: 2,
-      comment: "Amazing",
-      restaurant_id: 5,
-      yelp_id: businessid,
-    };
-    let response = await axios.post(
-      "http://127.0.0.1:8000/api/reviews/new_review/",
-      newReview,
-      {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      }
-    );
-    console.log(response.data);
-  }
 
   useEffect(() => {
-    getBusiness();
+    //getBusiness();
+    postRestaurant();
   }, [businessid]);
 
   return (
@@ -109,7 +95,7 @@ const RestaurantPage = (props) => {
         </div>
       )}
       <div>
-        <ReviewForm businessid={businessid} business={business} />
+        <ReviewForm businessid={businessid} business={business} addRestaurant={addRestaurant} />
       </div>
     </div>
   );

@@ -9,13 +9,7 @@ const ReviewForm = (props) => {
     const [user, token] = useAuth();
     const [resaurantReview, setRestaurantReview] = useState('')
     console.log(props.business)
-
-
-    useEffect (() => {
-        postRestaurant()
-        getReviews();
-    },[props.businessid])
-
+    console.log(props.addRestaurant)
 
 
     async function getReviews(){
@@ -32,9 +26,9 @@ const ReviewForm = (props) => {
           isVegetarian: true,
           isDelivery: true,
           isPickup: true,
-          city: props.business.location.city,
-          state: props.business.location.state,
-          zip: props.business.location.zip_code,
+          city: "Austin",
+          state: "Texas",
+          zip: "75181",
           likes: 0
         };
         let response = await axios.post(
@@ -50,9 +44,9 @@ const ReviewForm = (props) => {
         let newReview = {
             isliked: 0,
             isdisliked: 0,
-            customer_id: 2,
+            customer_id: user.id,
             comment: review,
-            restaurant_id: 8,
+            restaurant_id: props.addRestaurant.id,
             yelp_id: props.businessid
         }
         let response = await axios.post("http://127.0.0.1:8000/api/reviews/new_review/", newReview, {
@@ -62,6 +56,12 @@ const ReviewForm = (props) => {
         });
         console.log(response.data)
     }
+
+    useEffect (() => {
+        //postRestaurant()
+        getReviews();
+    },[props.businessid])
+
     return (
         <div className='review-form-container'>
             <form onSubmit={(e) => handleSubmit(e)}>
