@@ -60,7 +60,7 @@ const ReviewForm = (props) => {
     useEffect (() => {
         //postRestaurant()
         getReviews();
-    },[props.businessid])
+    },[])
 
     return (
         <div className='review-form-container'>

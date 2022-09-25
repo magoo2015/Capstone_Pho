@@ -63,7 +63,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin" element={<PrivateRoute><AdminPage /></PrivateRoute>} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/restaurantpage/:businessid" element={<RestaurantPage />} />
       </Routes>

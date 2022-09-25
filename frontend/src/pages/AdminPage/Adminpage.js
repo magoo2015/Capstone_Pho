@@ -43,7 +43,7 @@ const AdminPage = () => {
                 <div className='customer-search'>
                     <label>Customer Data Search</label>
                     <input type='text' value={find} onChange={(event) => setFind(event.target.value)} />
-                    <button type='submit'>Filter Search</button>
+                    <button type='submit'>Search</button>
                 </div>
             </form>       
             </div>
