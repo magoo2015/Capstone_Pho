@@ -8,8 +8,8 @@ const ReviewForm = (props) => {
     const [review, setReview] = useState('')
     const [user, token] = useAuth();
     const [resaurantReview, setRestaurantReview] = useState('')
-    console.log(props.business)
-    console.log(props.addRestaurant)
+    //console.log(props.business)
+    //console.log(props.addRestaurant)
 
 
     async function getReviews(){

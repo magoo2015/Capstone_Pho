@@ -11,10 +11,13 @@ import { GOOGLE } from "../../localKey";
 const RestaurantPage = (props) => {
   const { businessid } = useParams();
   //const businessid = "pgitOnp8rmmuc6sJYRLNEA"
-  const [business, setBusiness] = useState(DATA1); //change to DATA1 to local data
-  const [addRestaurant, setAddRestaurant] = useState({});
+  const [business, setBusiness] = useState({}); //change to DATA1 to local data
+  const [addRestaurant, setAddRestaurant] = useState([]);
   const [user, token] = useAuth();
   console.log(user);
+  console.log(business)
+  console.log(addRestaurant)
+  
 
 
   const config = {
@@ -56,15 +59,20 @@ const RestaurantPage = (props) => {
       "http://127.0.0.1:8000/api/restaurants/",
       newRestaurant
     );
-    //console.log(response.data);
+    console.log(response.data);
     setAddRestaurant(response.data)
   }
 
 
   useEffect(() => {
-    //getBusiness();
+    getBusiness();
+    //postRestaurant();
+  }, [businessid]);
+
+  useEffect(() => {
     postRestaurant();
   }, [businessid]);
+
 
   return (
     <div className="restaurant-container">
