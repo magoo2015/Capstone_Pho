@@ -37,25 +37,29 @@ const RestaurantPage = (props) => {
       );
       //console.log(response.data);
       setBusiness(response.data)
+      postRestaurant(response.data)
     } catch (error) {
       console.log(error);
     }
   };
 
-  async function postRestaurant() {
-
+  async function postRestaurant(bus) {
+    
+    console.log("Business: ", bus)
+    
     let newRestaurant = {
-      pho_restaurant_id: business.hours.id,
-      name: business.location.name,
+      pho_restaurant_id: businessid,
+      name: bus.name,
       isVegan: true,
       isVegetarian: true,
       isDelivery: true,
       isPickup: true,
-      city: business.location.city,
-      state: business.location.display_address.state,
-      zip: business.location.display_address.zip_code,
+      city: bus.location.city,
+      state: bus.location.state,
+      zip: bus.location.zip_code,
       likes:0
     };
+    console.log("Restaurant Info: ", newRestaurant)
     let response = await axios.post(
       "http://127.0.0.1:8000/api/restaurants/",
       newRestaurant
@@ -67,7 +71,7 @@ const RestaurantPage = (props) => {
 
   useEffect(() => {
     getBusiness();
-    postRestaurant();
+    // postRestaurant();
   }, [businessid]);
 
 
