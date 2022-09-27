@@ -12,9 +12,10 @@ const RestaurantPage = (props) => {
   const { businessid } = useParams();
   //const businessid = "pgitOnp8rmmuc6sJYRLNEA"
   const [business, setBusiness] = useState({}); //change to DATA1 to local data
-  const [addRestaurant, setAddRestaurant] = useState([]);
+  const [addRestaurant, setAddRestaurant] = useState({});
   const [user, token] = useAuth();
-  console.log(user);
+  //console.log(user);
+  console.log(businessid)
   console.log(business)
   console.log(addRestaurant)
   
@@ -44,15 +45,15 @@ const RestaurantPage = (props) => {
   async function postRestaurant() {
 
     let newRestaurant = {
-      pho_restaurant_id: businessid,
-      name: business.name,
+      pho_restaurant_id: business.hours.id,
+      name: business.location.name,
       isVegan: true,
       isVegetarian: true,
       isDelivery: true,
       isPickup: true,
-      city: business.location && business.location.city,
-      state: business.location && business.location.state,
-      zip: business.location && business.location.zip_code,
+      city: business.location.city,
+      state: business.location.display_address.state,
+      zip: business.location.display_address.zip_code,
       likes:0
     };
     let response = await axios.post(
@@ -66,12 +67,9 @@ const RestaurantPage = (props) => {
 
   useEffect(() => {
     getBusiness();
-    //postRestaurant();
-  }, [businessid]);
-
-  useEffect(() => {
     postRestaurant();
   }, [businessid]);
+
 
 
   return (
