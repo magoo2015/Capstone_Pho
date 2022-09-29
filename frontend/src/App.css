@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  background-image: url("./Images/pho.avif");
+  background-image: linear-gradient(black 40%, white);
   background-repeat: no-repeat;
   height: 100vh;
   background-size: cover;
@@ -36,6 +36,14 @@ button {
   padding: 0.5rem 0.5rem;
 }
 
+.container h1 {
+  color:wheat;
+}
+
+.container img {
+  height: 50%;
+  width: 50%;
+}
 button:hover {
   cursor: pointer;
   color: white;
@@ -69,6 +77,8 @@ button:hover {
 .search-container {
   display: flex;
   justify-content: center;
+  color:wheat;
+  padding: 1rem;
 }
 
 .search-location {
@@ -81,8 +91,8 @@ button:hover {
 
 .search-button {
   font-size: 14px;
-  color: whitesmoke;
-  background-color: black;
+  color: black;
+  background-color: white;
 }
 
 .businesses {
@@ -105,12 +115,23 @@ button:hover {
 
 .restaurant-container {
   display: flex;
-  flex-direction: column;
   color: wheat;
   margin: auto;
   width: 20%;
   padding: 10px;
+  justify-content: center;
+  align-items:flex-start;
 }
+
+.review-form-container label {
+  color:wheat;
+  background-color: black;
+}
+
+.restaurant-reviews label {
+  justify-content: center;
+}
+
 
 .restaurant img {
   height: auto;
@@ -159,11 +180,12 @@ button:hover {
 
 .Admin {
   text-align: center;
+  color: wheat;
   padding: 5rem;
 }
 
 .Admin label {
-  color: black;
+  color: wheat;
 }
 
 .Admin input {

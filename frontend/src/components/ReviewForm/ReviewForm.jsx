@@ -73,6 +73,7 @@ const ReviewForm = (props) => {
                 <Buttons  />
             </div>
             <div className='restaurant-reviews'>
+                <label>Reviews</label>
                 {resaurantReview && resaurantReview.map((restaurant, index) => {
                     return (
                         <div className='rest-review' key={index}>

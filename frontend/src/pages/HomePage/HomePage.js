@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import phophoto from "../../Images/phophoto.avif";
 
 import axios from "axios";
 
@@ -29,6 +30,7 @@ const HomePage = () => {
   return (
     <div className="container">
       <h1>Welcome! {user.username}!</h1>
+      <img src={phophoto}/>
       {cars &&
         cars.map((car) => (
           <p key={car.id}>

@@ -38,14 +38,7 @@ const SearchBar = (props) => {
     <div className="searchbar-container">
       <form onSubmit={(e) => handleSubmit(e)}>
         <label className="search-location">Choose Location</label>
-        <select value={location} onChange={handleLocation}>
-          <option value="Dallas">Dallas</option>
-          <option value="Richardson">Richardson</option>
-          <option value="Fort Worth">Fort Worth</option>
-          <option value="San Francisco">San Francisco</option>
-          <option value="Miami">Miami</option>
-          <option value="Austin">Austin</option>
-        </select>
+        <input type='text' value={location} onChange={handleLocation} />
         <label className="search-category">Choose Category</label>
         <select value={category} onChange={handleCatergory}>
           <option value="Vegan">Vegan</option>
