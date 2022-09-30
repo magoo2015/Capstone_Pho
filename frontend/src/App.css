@@ -143,12 +143,19 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-content: space-between;
-  flex-wrap: nowrap;
   padding: 2rem;
-  color: black;
+  color: wheat;
   font-size: x-large;
-  background-color: transparent;
+}
+
+.about h1 {
+  margin:2rem;
+  padding: 1rem;
+}
+
+.about h2 {
+
+
 }
 
 .customer-search {

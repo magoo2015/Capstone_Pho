@@ -29,7 +29,7 @@ const HomePage = () => {
   }, [token]);
   return (
     <div className="container">
-      <h1>Welcome! {user.username}!</h1>
+      <h1>Welcome back {user.username}!</h1>
       <img src={phophoto}/>
       {cars &&
         cars.map((car) => (
