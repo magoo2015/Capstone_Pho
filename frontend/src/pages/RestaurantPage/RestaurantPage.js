@@ -83,7 +83,7 @@ const RestaurantPage = (props) => {
           <h1>{business.name}</h1>
           <img src={business.image_url} alt="Restaurant" />
           <p>
-          <label>Address</label>
+          <label>Address </label>
             {business.location.display_address[0]}{" "}
             {business.location.display_address[1]}
           </p>
@@ -105,7 +105,7 @@ const RestaurantPage = (props) => {
           </div>
         </div>
       )}
-      <div>
+      <div className="reviewform">
         <ReviewForm businessid={businessid} business={business} addRestaurant={addRestaurant} />
       </div>
     </div>

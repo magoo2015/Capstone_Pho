@@ -38,6 +38,8 @@ button {
 
 .container h1 {
   color:wheat;
+  padding: 40px;
+  margin: 10px
 }
 
 .container img {
@@ -113,6 +115,7 @@ button:hover {
   max-height: 200px;
 }
 
+
 .restaurant-container {
   display: flex;
   color: wheat;
@@ -123,9 +126,15 @@ button:hover {
   align-items:flex-start;
 }
 
+.restaurant label {
+  size: 10px;
+}
+
+
 .review-form-container label {
   color:wheat;
   background-color: black;
+  font-size: 20px;
 }
 
 .restaurant-reviews label {
@@ -137,6 +146,10 @@ button:hover {
   height: auto;
   width: auto;
   max-height: 400px;
+}
+
+.reviewform {
+  float: left;
 }
 
 .about {
@@ -154,7 +167,8 @@ button:hover {
 }
 
 .about h2 {
-
+  margin:2rem;
+  padding: 1rem;
 
 }
 
@@ -217,4 +231,15 @@ margin: 5px;
   margin-right: auto;
   color: black;
   background-color: aliceblue;
+}
+
+footer {
+  color:wheat;
+  position: absolute;
+  font-size: 1.2rem;
+  left: 0;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  bottom: inherit;
 }
