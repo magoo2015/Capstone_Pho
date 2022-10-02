@@ -126,10 +126,18 @@ button:hover {
   align-items:flex-start;
 }
 
-.restaurant label {
+#address-label {
   size: 10px;
 }
 
+#delivery-pickup {
+  font-size: 16px;
+}
+
+#reviews {
+  margin: 21%;
+
+}
 
 .review-form-container label {
   color:wheat;

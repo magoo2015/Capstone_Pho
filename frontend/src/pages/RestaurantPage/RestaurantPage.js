@@ -83,11 +83,12 @@ const RestaurantPage = (props) => {
           <h1>{business.name}</h1>
           <img src={business.image_url} alt="Restaurant" />
           <p>
-          <label>Address </label>
+          <label id="address-label">Address </label>
             {business.location.display_address[0]}{" "}
             {business.location.display_address[1]}
           </p>
           {/* <p>{business.address1}</p> */}
+          <label id="delivery-pickup">Delivery/Pickup Available: </label>
           <p>{business.transactions[0]}{" "}
               {business.transactions[1]}
           </p>
