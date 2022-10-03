@@ -34,3 +34,8 @@ li {
   font-size: 2rem;
   color: wheat;
 }
+
+.navBar h1 { 
+  color: wheat;
+  margin-right: 28rem;
+}

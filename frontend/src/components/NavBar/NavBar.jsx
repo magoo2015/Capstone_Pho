@@ -29,6 +29,7 @@ const Navbar = () => {
           </Link>
 
         </li>
+        <h1>Whatcha` Lookin` Pho</h1>
         <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
